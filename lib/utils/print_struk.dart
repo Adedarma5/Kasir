@@ -9,7 +9,6 @@ class PrintStruk {
   }) async {
     final pdf = pw.Document();
 
-    // ===================== MERGE ITEM SAMA =====================
     final rawItems = (order['items'] as List<dynamic>? ?? []);
     final Map<String, Map<String, dynamic>> merged = {};
 
@@ -38,7 +37,7 @@ class PrintStruk {
     final formatTgl =
         "${tgl.day}/${tgl.month}/${tgl.year} ${tgl.hour}:${tgl.minute.toString().padLeft(2, '0')}";
 
-    // ===================== PDF =====================
+    
     pdf.addPage(
       pw.Page(
         pageFormat: PdfPageFormat.roll80,
