@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthService {
-  static const String baseUrl = "https://poko.my.id/api"; // ganti sesuai IP laptop kamu
+  static const String baseUrl = "https://"; 
 
   static Future<Map<String, dynamic>> login(String email, String password) async {
     try {
@@ -32,25 +32,21 @@ class AuthService {
     }
   }
 
-  /// Hapus token saat logout
   static Future<void> logout() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.remove('token');
   }
 
-  /// Ambil token yang tersimpan
   static Future<String?> getToken() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('token');
   }
 
-  /// Cek status login (true jika ada token)
   static Future<bool> isLoggedIn() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.containsKey('token');
   }
 
-  /// Contoh: ambil data user login dari API
   static Future<Map<String, dynamic>?> getUserProfile() async {
     final token = await getToken();
     if (token == null) return null;
