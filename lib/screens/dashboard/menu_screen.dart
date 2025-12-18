@@ -30,7 +30,6 @@ class MenuScreen extends StatelessWidget {
       backgroundColor: Colors.grey[50],
       body: CustomScrollView(
         slivers: [
-          // App Bar dengan efek blur
           SliverAppBar(
             expandedHeight: isTablet ? 180 : 140,
             floating: false,
@@ -78,7 +77,6 @@ class MenuScreen extends StatelessWidget {
                 ),
                 child: Stack(
                   children: [
-                    // Pattern decoration
                     Positioned(
                       top: -50,
                       right: -50,
@@ -124,14 +122,12 @@ class MenuScreen extends StatelessWidget {
             ],
           ),
 
-          // Content
           SliverPadding(
             padding: EdgeInsets.all(isTablet ? 32 : 20),
             sliver: SliverToBoxAdapter(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Welcome Section
                   Container(
                     padding: EdgeInsets.all(isTablet ? 24 : 20),
                     decoration: BoxDecoration(
@@ -193,7 +189,6 @@ class MenuScreen extends StatelessWidget {
 
                   SizedBox(height: isTablet ? 32 : 24),
 
-                  // Menu Grid
                   LayoutBuilder(
                     builder: (context, constraints) {
                       int crossAxisCount = 2;
@@ -244,7 +239,6 @@ class MenuScreen extends StatelessWidget {
                             gradient: [Colors.red[400]!, Colors.red[600]!],
                             label: 'Pengaturan',
                             subtitle: 'Pengaturan akun & aplikasi',
-                            // page: const PengaturanScreen(),
                             isTablet: isTablet,
                           ),
                         ],
@@ -302,7 +296,6 @@ class MenuScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Icon dengan gradient
               Container(
                 height: isTablet ? 75 : 65,
                 width: isTablet ? 75 : 65,
@@ -330,7 +323,6 @@ class MenuScreen extends StatelessWidget {
 
               SizedBox(height: isTablet ? 16 : 12),
 
-              // Label
               Text(
                 label,
                 style: TextStyle(
@@ -343,7 +335,6 @@ class MenuScreen extends StatelessWidget {
 
               const SizedBox(height: 4),
 
-              // Subtitle
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 child: Text(
