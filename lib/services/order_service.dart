@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class OrderService {
   static const String baseUrl = 'https://poko.my.id/api';
 
-  /// 🔹 Ambil semua produk
+ 
   static Future<List<dynamic>> getProduk() async {
     final token = await _getToken();
     final response = await http.get(
@@ -15,7 +15,7 @@ class OrderService {
     return _handleListResponse(response, 'produk');
   }
 
-  /// 🔹 Ambil daftar order berdasarkan status dan optional filter tanggal
+  
   static Future<List<dynamic>> getOrders({
     required String status,
     String? date,
@@ -32,7 +32,6 @@ class OrderService {
     return _handleListResponse(response, 'orders');
   }
 
-  /// 🔹 Simpan pesanan baru
   static Future<Map<String, dynamic>> createOrder({
     required String namaPelanggan,
     required List<Map<String, dynamic>> items,
@@ -54,7 +53,6 @@ class OrderService {
     return _handleResponse(response);
   }
 
-  /// 🔹 Update status order
   static Future<Map<String, dynamic>> updateOrder(
     int orderId, {
     required String status,
@@ -68,7 +66,6 @@ class OrderService {
     return _handleResponse(response);
   }
 
-  /// 🔹 Ambil token dari SharedPreferences
   static Future<String?> _getToken() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString('token');
@@ -93,7 +90,6 @@ class OrderService {
     return _handleResponse(response);
   }
 
-  /// 🔹 Tambah item ke pesanan (order)
   static Future<Map<String, dynamic>> addItemToOrder(
     int orderId,
     int produkId,
@@ -121,14 +117,13 @@ class OrderService {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
 
-      if (data is List) return data; // jika respon list langsung
-      return data['data'] ?? []; // jika respon {data: [...]}
+      if (data is List) return data; 
+      return data['data'] ?? []; 
     }
 
     throw Exception('Gagal memuat produk (${response.statusCode})');
   }
 
-  /// 🔹 Headers standar
   static Map<String, String> _headers(String? token) {
     return {
       'Content-Type': 'application/json',
@@ -136,7 +131,6 @@ class OrderService {
     };
   }
 
-  /// 🔹 Handle response yang berupa list
   static List<dynamic> _handleListResponse(http.Response response, String key) {
     if (response.statusCode == 200) {
       final data = jsonDecode(response.body);
@@ -149,7 +143,6 @@ class OrderService {
     }
   }
 
-  /// 🔹 Handle response single
   static Map<String, dynamic> _handleResponse(http.Response response) {
     if (response.statusCode == 200 || response.statusCode == 201) {
       return {'success': true, 'data': jsonDecode(response.body)};
