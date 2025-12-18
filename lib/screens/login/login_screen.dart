@@ -74,7 +74,6 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                // Logo yang keluar dari card
                 Container(
                   width: isTablet ? 120 : 100,
                   height: isTablet ? 120 : 100,
@@ -103,7 +102,6 @@ class _LoginPageState extends State<LoginPage> {
                 
                 const SizedBox(height: 30),
 
-                // Card dengan form login
                 Container(
                   width: cardWidth,
                   padding: EdgeInsets.all(isTablet ? 40 : 28),
@@ -122,7 +120,6 @@ class _LoginPageState extends State<LoginPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      // Judul
                       Text(
                         "Kasir Coffee",
                         style: TextStyle(
@@ -143,7 +140,6 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: isTablet ? 40 : 32),
 
-                      // Input Email
                       TextField(
                         controller: emailController,
                         keyboardType: TextInputType.emailAddress,
@@ -180,7 +176,6 @@ class _LoginPageState extends State<LoginPage> {
                       
                       SizedBox(height: isTablet ? 24 : 20),
 
-                      // Input Password
                       TextField(
                         controller: passwordController,
                         obscureText: _obscurePassword,
@@ -228,7 +223,6 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: isTablet ? 36 : 30),
 
-                      // Tombol Login
                       SizedBox(
                         width: double.infinity,
                         height: isTablet ? 56 : 52,
@@ -266,7 +260,6 @@ class _LoginPageState extends State<LoginPage> {
 
                       SizedBox(height: isTablet ? 28 : 24),
 
-                      // Footer
                       Text(
                         "© 2025 Kasir Coffee",
                         style: TextStyle(
