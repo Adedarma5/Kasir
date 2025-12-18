@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 
 class OrderService {
-  static const String baseUrl = 'https://poko.my.id/api';
+  static const String baseUrl = 'https://;
 
  
   static Future<List<dynamic>> getProduk() async {
